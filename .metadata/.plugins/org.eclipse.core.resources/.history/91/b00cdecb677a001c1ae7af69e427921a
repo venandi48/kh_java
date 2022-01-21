@@ -1,0 +1,8 @@
+package kh.java.type;
+
+public class PrimitiveTypeStudy {
+
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,24 @@
+package kh.java.type;
+
+
+/**
+ * 
+ * bit : 0 또는 1 저장
+ * byte : 1byte = 8bit
+ * kilo-byte : 1kb = 1024byte
+ * mega-byte : 1mb = 1024kb
+ * giga-byte : 1gb = 1024mb
+ * tera-byte : 1tb = 1024gb
+ * peta-byte
+ * exa-byte
+ * zetta-byte
+ * yotta-byte
+ * 
+ */
+
+public class PrimitiveTypeStudy {
+
+	public static void main(String[] args) {
+		
+	}
+}

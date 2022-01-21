@@ -1,0 +1,39 @@
+package com.kh.java.value;
+
+public class ValueMain {
+	
+	/**
+	 * 
+	 * 자바프로그램은 클래스에 선언된 메소드를 연달아 호출하며 실행된다.
+	 * jvm이 main 메소드를 호출한다
+	 * main 메소드가 프로그램의 시작이자 끝이다.
+	 * 	: main 메소드의 모든 코드를 실행하면 프로그램이 종료된다.
+	 * 
+	 */
+	
+	public static void main(String[] args) {
+		System.out.println("시작");
+		
+		// 1. 객체(메모리조각) 생성
+		// 객체레시피: 클래스>객체
+		// 클래스명 변수명 = new 클래스명();
+		ValueMain main = new ValueMain();
+		
+		// 2. 객체의 메소드 호출
+		// 변수명.메소드명;
+		main.test1();
+		main.test2();
+		
+		System.out.println("끝");
+		
+	}
+	
+	public void test1() {
+		System.out.println("안녕");
+	}
+	
+	public void test2() {
+		System.out.println("잘가");
+	}
+
+}

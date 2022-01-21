@@ -1,0 +1,16 @@
+package com.kh.java._import;
+
+public class ImportMain {
+
+	public static void main(String[] args) {
+	
+		ImportMain main = new ImportMain();
+		
+		main.test1();
+		
+	}
+	
+	public void test1() {
+		System.out.println("안녕");
+	}
+}

@@ -1,0 +1,27 @@
+package com.kh.java.print;
+
+public class PrintMain {
+
+	public static void main(String[] args) {
+	
+		PrintMain main = new PrintMain();
+		main.test1();
+	}
+	
+	/**
+	 * 
+	 * System.out.println() : 출력 후 개행
+	 * System.out.print() : 개행 없는 출력
+	 * 
+	 * escaping문자: 인쇄되지않고 키보드로 표현불가한 문자
+	 * '\+문자'의 조합으로 구성
+	 * ex) \n 개행, \t 탭추가, \\, \" 쌍따옴표출력
+	 * 
+	 */
+	public void test1() {
+		System.out.print("안녕");
+		System.out.println("잘가");
+		System.out.print("배고파\\");
+		System.out.print("뭐먹지");
+	}
+}

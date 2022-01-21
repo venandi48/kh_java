@@ -1,0 +1,8 @@
+package com.kh.java.value;
+
+public class ValueMain {
+	public static void main(String[] args) {
+		
+	}
+
+}

@@ -1,0 +1,14 @@
+package com.kh.java.print;
+
+public class PrintMain {
+
+	public static void main(String[] args) {
+	
+		PrintMain main = new PrintMain();
+		main.test1();
+	}
+	
+	public void test1() {
+		
+	}
+}

@@ -1,0 +1,21 @@
+package com.kh.java.print;
+
+public class PrintMain {
+
+	public static void main(String[] args) {
+	
+		PrintMain main = new PrintMain();
+		main.test1();
+	}
+	
+	/**
+	 * 
+	 * System.out.print()
+	 * 
+	 */
+	public void test1() {
+		System.out.print("안녕");
+		System.out.print("잘가");
+		System.out.print("배고파");
+	}
+}
