@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.kh.java._import.other.Bar"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="a.b.c.ABC"/>
+    <fullyQualifiedTypeName name="product.model.vo.Product"/>
+</qualifiedTypeNameHistroy>
