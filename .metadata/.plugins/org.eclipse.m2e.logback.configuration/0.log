@@ -7,3 +7,7 @@
 2022-01-21 22:34:15,052 [Framework stop - Equinox Container: 29db8739-028b-406b-8041-fea89a995108] WARN  org.eclipse.jgit.lib.Repository - close() called when useCnt is already zero for Repository[C:\Users\ej_lee\git\kh_Assignment\.git]
 2022-01-24 09:03:51,287 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
 2022-01-24 14:45:04,330 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-01-24 16:48:14,069 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-01-25 08:39:28,797 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-01-25 11:08:12,043 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-01-25 17:04:15,543 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

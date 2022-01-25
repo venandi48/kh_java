@@ -25,6 +25,7 @@ public class Example {
 		total = kr + eng + mt;
 		avg = total / 3.0;
 		
+		// Pesudo code(의사코드)
 		String result = kr >= 40 && eng >= 40 && mt >= 40 && avg >= 60 ? "합격" : "불합격";
 		System.out.printf("%s입니다.%n", result);		
 	
@@ -60,7 +61,7 @@ public class Example {
 		grade = sc.nextDouble();
 		
 		System.out.printf("%d학년 %d반 %d번 ", year, classNum, stNum);
-		System.out.print(gender=='M'?"남학생":"여학생");
+		System.out.print(gender=='M'?"남학생":"여학생"); // int==int 연산으로 처리됨
 		System.out.printf(" %s는 성적이 %.2f이다.%n", name, grade);
 	}
 	

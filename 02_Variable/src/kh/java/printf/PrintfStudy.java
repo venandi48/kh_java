@@ -69,7 +69,7 @@ public class PrintfStudy {
 		 * %10d
 		 * %-10d
 		 */
-		System.out.printf("%10d, %-10d.", i, i);
+		System.out.printf("%10d, %-10d.", i, i); //총 10바이트의 크기 내에서 우측, 좌측 정렬의 형식으로 출력
 		System.out.println();
 		/*
 		 * 소수점아래 표시

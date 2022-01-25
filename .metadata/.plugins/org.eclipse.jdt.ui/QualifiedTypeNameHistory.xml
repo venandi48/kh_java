@@ -4,4 +4,7 @@
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="a.b.c.ABC"/>
     <fullyQualifiedTypeName name="product.model.vo.Product"/>
+    <fullyQualifiedTypeName name="com.kh.function.Example"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>
