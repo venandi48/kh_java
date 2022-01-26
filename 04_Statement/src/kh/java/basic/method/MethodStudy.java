@@ -73,7 +73,7 @@ public class MethodStudy {
 	/**
 	 * 선언 -> 값대입 -> 사용
 	 * 
-	 * 매개변수(메소드 선언부, parameter)
+	 * 매개변수(메소드 선언부, parameter, 일종의 공간)
 	 * 	- 메소드 호출 시 값(매개인자, argument)이 대입
 	 * 
 	 */
