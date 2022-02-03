@@ -45,7 +45,7 @@ public class Sample {
 		//배열에서 열이 5의 배수인 경우만 출력
 		for(int i=0; i< arr.length; i++) {
 			for (int j = 0; j < arr[0].length; j++) {
-				if (j % 5 == 0)
+				if (arr[i][j] % 5 == 0)
 					System.out.printf("%d(%d,%d) ", arr[i][j], i, j);
 			}
 			System.out.println();
