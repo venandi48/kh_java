@@ -42,7 +42,7 @@ public class Sample {
 			}
 		}
 		
-		//배열에서 열이 5의 배수인 경우만 출력
+		//배열에서 값이 5의 배수인 경우만 출력
 		for(int i=0; i< arr.length; i++) {
 			for (int j = 0; j < arr[0].length; j++) {
 				if (arr[i][j] % 5 == 0)
