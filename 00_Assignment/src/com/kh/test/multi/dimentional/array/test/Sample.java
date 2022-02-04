@@ -9,25 +9,29 @@ public class Sample {
 	}
 	
 	public void exercise2() {
-		int[][] arr = new int[3][4];
-		
+		int[][] arr = new int[4][4];
+
 		//배열 내 임의의 정수 기록
-		for(int i=0; i<arr.length; i++) {
+		for(int i=0; i<arr.length-1; i++) {
+			int sumRow = 0;
+			
 			for(int j=0; j<arr[0].length; j++) {
-				arr[i][j] = (int)(Math.random()*100);
+				if(j<arr[0].length-1) {
+					arr[i][j] = (int)(Math.random()*100);
+					sumRow += arr[i][j];
+				}
+				else arr[i][j] = sumRow;
+				arr[arr.length-1][j] += arr[i][j];
 			}
 		}
 		
-		int sum = 0;
 		System.out.println("\t0열\t1열\t2열\t3열");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(i+"행\t");
 			for(int j = 0; j < arr[0].length; j++) {
 				System.out.print(arr[i][j]+"\t");
-				sum += arr[i][j];
 			}
-			System.out.println("행 합계: "+sum);
-			sum = 0;
+			System.out.println();
 		}
 		
 	}

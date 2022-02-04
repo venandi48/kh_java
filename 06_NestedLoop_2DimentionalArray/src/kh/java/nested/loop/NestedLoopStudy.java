@@ -11,10 +11,10 @@ public class NestedLoopStudy {
 //		study.test3();
 //		study.test4();
 //		study.test5();
-//		study.test6();
+		study.test6();
 //		study.test7();
 //		study.test8();
-		study.test9();
+//		study.test9();
 		
 	}
 
@@ -71,7 +71,7 @@ public class NestedLoopStudy {
 		for (int i = 1; i < 10; i++) {
 			for (int j = 1; j < 10; j++) {
 				if (i * j > 50)
-					break outer; //탈출할 반복문 지정
+					break; //탈출할 반복문 지정
 				System.out.printf("%d * %d = %d%n", i, j, i * j);
 			}
 			System.out.println();
