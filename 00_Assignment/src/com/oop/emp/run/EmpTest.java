@@ -62,7 +62,7 @@ public class EmpTest {
 				+ "2. 급여 변경\n"
 				+ "3. 부서 변경\n"
 				+ "4. 직급 변경\n"
-				+ "9. 이전 메뉴로 이동\n"
+				+ "5. 이전 메뉴로 이동\n"
 				+ "***************************************";
 		int choice = 0;
 
@@ -92,14 +92,14 @@ public class EmpTest {
 				System.out.print("직급변경: ");
 				e.setJob(sc.nextLine());
 				break;
-			case 9:
+			case 5:
 				System.out.println("이전 메뉴로 돌아갑니다.");
 				return;
 			default:
 				System.out.println("올바른 메뉴를 선택하세요.");
 			}
 
-		} while (choice != 9);
+		} while (choice != 5);
 
 	}
 }
