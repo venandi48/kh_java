@@ -11,9 +11,6 @@ public class Desk {
 	String topMaterial;
 	String lowerMaterial;
 
-//	int width;
-//	int depth;
-//	int height;
 	int[] size; // w, d, h
 
 	boolean storage;

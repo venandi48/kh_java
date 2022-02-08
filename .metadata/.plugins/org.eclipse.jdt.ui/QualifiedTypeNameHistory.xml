@@ -10,4 +10,7 @@
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="net.kh.member.model.Member"/>
+    <fullyQualifiedTypeName name="com.kh.function.run.Main"/>
+    <fullyQualifiedTypeName name="com.oop.emp.model.Employee"/>
 </qualifiedTypeNameHistroy>

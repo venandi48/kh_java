@@ -16,9 +16,9 @@ public class StudentMain {
 		// 학생객체 1
 		Student s2 = new Student();
 		// 상태(속성) 값대입
-		s1.setName("신사임당");
-		s1.setGender('여');
-		s1.setAge(17);
+		s2.setName("신사임당");
+		s2.setGender('여');
+		s2.setAge(17);
 		// 행동(기능) 실행
 		s2.introduce();
 		
