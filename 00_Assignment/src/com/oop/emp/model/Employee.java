@@ -44,7 +44,7 @@ public class Employee {
 	}
 	
 	public void empOutput() {
-		System.out.printf("%d\t%s\t%s\t%s\t%d\t%c자\t%d원\t%.2f\t%s\t%s\n",
+		System.out.printf("%d\n%s\n%s\n%s\n%d\n%c자\n%d원\n%.2f\n%s\n%s\n",
 				getEmpNo(), getEmpName(), getDept(), getJob(), getAge(), getGender(), getSalary(), getBonusPoint(), getPhone(), getAddress());
 
 	}

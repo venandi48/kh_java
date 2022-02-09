@@ -10,7 +10,11 @@ public class EmpTest {
 		EmpTest hw = new EmpTest();
 		hw.mainMenu();
 	}
-
+	/**
+	 * 모든 non-static메소드는 숨은 참조 this를 가짐
+	 *  - this는 현재 객체를 가리킨다.
+	 *  - 
+	 */
 	public void mainMenu() {
 		String topMenu = "************** 사원 정보 관리 프로그램 **************\n"
 				+ "1. 새 사원 정보 입력\n"
@@ -57,7 +61,12 @@ public class EmpTest {
 	}
 	
 	public void modifyMenu(Employee e) {
-		String modifyMenu = "********** 사원 정보 관리 프로그램 **********\n"
+		if (e == null) {
+			System.out.println("먼저 사원 정보를 입력하세요.");
+			return;
+		}
+
+		String modifyMenu = "********** 사원 정보 수정 프로그램 **********\n"
 				+ "1. 이름 변경\n"
 				+ "2. 급여 변경\n"
 				+ "3. 부서 변경\n"
