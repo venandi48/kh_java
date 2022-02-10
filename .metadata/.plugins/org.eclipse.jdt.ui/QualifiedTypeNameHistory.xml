@@ -13,4 +13,7 @@
     <fullyQualifiedTypeName name="net.kh.member.model.Member"/>
     <fullyQualifiedTypeName name="com.kh.function.run.Main"/>
     <fullyQualifiedTypeName name="com.oop.emp.model.Employee"/>
+    <fullyQualifiedTypeName name="kh.java.oop.init.block.InitBlockSampleMain"/>
+    <fullyQualifiedTypeName name="com.oop.method.nonstatic.NonStaticSample"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
 </qualifiedTypeNameHistroy>
