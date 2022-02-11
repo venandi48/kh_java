@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.kh.java._import.other.Bar"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="a.b.c.ABC"/>
     <fullyQualifiedTypeName name="product.model.vo.Product"/>
     <fullyQualifiedTypeName name="com.kh.function.Example"/>
@@ -16,4 +15,10 @@
     <fullyQualifiedTypeName name="kh.java.oop.init.block.InitBlockSampleMain"/>
     <fullyQualifiedTypeName name="com.oop.method.nonstatic.NonStaticSample"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="kh.java.oop.method.MethodOverloadingStudy"/>
+    <fullyQualifiedTypeName name="kh.java.oop.method.CallByVauleOrRefeerenceStudy"/>
+    <fullyQualifiedTypeName name="kh.java.oop.method.RecursiveMethodStudy"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="kh.java.oop.constructor.User"/>
+    <fullyQualifiedTypeName name="com.oop.employee.model.vo.Employee"/>
 </qualifiedTypeNameHistroy>
