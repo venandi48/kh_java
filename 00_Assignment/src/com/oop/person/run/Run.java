@@ -1,6 +1,6 @@
-package com.opp.person.run;
+package com.oop.person.run;
 
-import com.opp.person.controller.PersonController;
+import com.oop.person.controller.PersonController;
 
 public class Run {
 	public static void main(String[] args) {

@@ -1,8 +1,8 @@
-package com.opp.person.controller;
+package com.oop.person.controller;
 
 import java.util.Scanner;
 
-import com.opp.person.model.Person;
+import com.oop.person.model.Person;
 
 public class PersonController {
 	private Scanner sc = new Scanner(System.in);

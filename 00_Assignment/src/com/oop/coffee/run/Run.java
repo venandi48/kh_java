@@ -1,6 +1,6 @@
-package com.opp.coffee.run;
+package com.oop.coffee.run;
 
-import com.opp.coffee.controller.CoffeeManager;
+import com.oop.coffee.controller.CoffeeManager;
 
 public class Run {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.opp.person.model;
+package com.oop.person.model;
 
 public class Person {
 	private String name;

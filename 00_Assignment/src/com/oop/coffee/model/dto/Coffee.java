@@ -1,4 +1,4 @@
-package com.opp.coffee.model.dto;
+package com.oop.coffee.model.dto;
 
 public class Coffee {
 	private String origin;

@@ -1,8 +1,8 @@
-package com.opp.coffee.controller;
+package com.oop.coffee.controller;
 
 import java.util.Scanner;
 
-import com.opp.coffee.model.dto.Coffee;
+import com.oop.coffee.model.dto.Coffee;
 
 public class CoffeeManager {
 	private Scanner sc = new Scanner(System.in);
