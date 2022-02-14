@@ -5,6 +5,9 @@ import java.util.Scanner;
 /**
  * 
  * Person객체를 Person[]로 관리하는 클래스
+ * 
+ * has a 포함관계(연관관계 Association)
+ *  - PersonManager ---(실선)---> Person
  *
  */
 public class PersonManager {

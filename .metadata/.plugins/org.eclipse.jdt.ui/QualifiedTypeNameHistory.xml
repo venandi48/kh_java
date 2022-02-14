@@ -21,4 +21,7 @@
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="kh.java.oop.constructor.User"/>
     <fullyQualifiedTypeName name="com.oop.employee.model.vo.Employee"/>
+    <fullyQualifiedTypeName name="kh.java.object.array.PerosonMain"/>
+    <fullyQualifiedTypeName name="kh.java.object.array.person.StudentManager"/>
+    <fullyQualifiedTypeName name="com.opp.coffee.model.dto.Coffee"/>
 </qualifiedTypeNameHistroy>
