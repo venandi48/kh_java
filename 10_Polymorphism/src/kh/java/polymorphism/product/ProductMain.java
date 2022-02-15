@@ -13,6 +13,7 @@ public class ProductMain {
 
 	}
 
+	// 동적바인딩
 	public void test3(Product product) {
 		System.out.println(product.getProductInfo());
 	}
