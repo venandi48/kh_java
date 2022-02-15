@@ -24,4 +24,13 @@
     <fullyQualifiedTypeName name="kh.java.object.array.PerosonMain"/>
     <fullyQualifiedTypeName name="kh.java.object.array.person.StudentManager"/>
     <fullyQualifiedTypeName name="com.opp.coffee.model.dto.Coffee"/>
+    <fullyQualifiedTypeName name="kh.java.inheritance.product.before.Desktop"/>
+    <fullyQualifiedTypeName name="kh.java.inheritance.product.before.SmartPhone"/>
+    <fullyQualifiedTypeName name="kh.java.inheritance.product.before.Tv"/>
+    <fullyQualifiedTypeName name="kh.java.inheritance.shape.Circle"/>
+    <fullyQualifiedTypeName name="member.inheritance.controller.MemberManager"/>
+    <fullyQualifiedTypeName name="member.inheritance.model.vo.Silver"/>
+    <fullyQualifiedTypeName name="member.inheritance.model.vo.Gold"/>
+    <fullyQualifiedTypeName name="member.inheritance.model.vo.Vip"/>
+    <fullyQualifiedTypeName name="member.inheritance.model.vo.VVip"/>
 </qualifiedTypeNameHistroy>

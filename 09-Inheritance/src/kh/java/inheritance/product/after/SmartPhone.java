@@ -3,7 +3,6 @@ package kh.java.inheritance.product.after;
 public class SmartPhone extends Product {
 
 	private String os;
-
 	private String carrier; // 통신사
 
 	public SmartPhone() {
