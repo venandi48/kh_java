@@ -7,7 +7,6 @@
     <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="net.kh.member.model.Member"/>
     <fullyQualifiedTypeName name="com.kh.function.run.Main"/>
@@ -33,4 +32,10 @@
     <fullyQualifiedTypeName name="member.inheritance.model.vo.Gold"/>
     <fullyQualifiedTypeName name="member.inheritance.model.vo.Vip"/>
     <fullyQualifiedTypeName name="member.inheritance.model.vo.VVip"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.util.Objects"/>
+    <fullyQualifiedTypeName name="kh.java.polymorphism.animal.Animal"/>
+    <fullyQualifiedTypeName name="kh.java.polymorphism.product.ProductMain"/>
+    <fullyQualifiedTypeName name="member.controller.MemberManager"/>
+    <fullyQualifiedTypeName name="member.model.vo.Member"/>
 </qualifiedTypeNameHistroy>

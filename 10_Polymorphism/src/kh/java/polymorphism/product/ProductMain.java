@@ -14,6 +14,11 @@ public class ProductMain {
 	}
 
 	// 동적바인딩
+	/**
+	 * 동적바인딩 적용
+	 * 
+	 * 상속관계, 메소드Override, 다형성
+	 */
 	public void test3(Product product) {
 		System.out.println(product.getProductInfo());
 	}

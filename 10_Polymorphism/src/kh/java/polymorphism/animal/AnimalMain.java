@@ -10,9 +10,125 @@ public class AnimalMain {
 //		main.test3();
 //		main.test4();
 //		main.test5();
-		main.test6();
+//		main.test6();
+//		main.test7();
+//		main.test8();
+//		main.test9();
+//		main.test10();
+//		main.test11();
+		main.test12();
 		
 	}
+	
+	/**
+	 * 추상클래스에서 인터페이스 구현하기
+	 *  - 추상클래스는 부모추상메소드를 구현하지 않아도 됨
+	 */
+	public void test12() {
+		Animal[] animals = new Animal[4];
+		animals[0] = new Tiger();
+		animals[1] = new Lion();
+		animals[2] = new Bear();
+		animals[3] = new Eagle();
+		
+		for(Animal animal : animals)
+			System.out.println(animal.getSound());
+	}
+	
+	/**
+	 * Eagle클래스 구현
+	 *  - Animal클래스 상속
+	 *  - Flyable 인터페이스 구현
+	 *  	: fly추상메소드
+	 */
+	public void test11() {
+		Eagle eagle = new Eagle();
+		
+		eagle.say();
+		eagle.attack();
+		eagle.fly();
+	}
+	
+	/**
+	 * 다중구현
+	 *  - 자식클래스는 여러개의 인터페이스를 구현할 수 있음
+	 */
+	public void test10() {
+		Tiger tiger = new Tiger();
+		
+		Washable washTiger = tiger;
+		washTiger.wash();
+		
+		Runnable runTiger = tiger;
+		runTiger.run();
+		
+		Animal aniTiger = tiger;
+		aniTiger.attack();
+		aniTiger.say();
+	}
+	
+	/**
+	 * jdk8에 추가된 default메소드, static메소드
+	 */
+	public void test9() {
+		Bear bear = new Bear();
+		bear.walk();
+		
+		Runnable runner = new Tiger();
+		runner.walk();
+		
+		Runnable.warmup();
+	}
+	
+	/**
+	 * 인터페이스와 구현클래스 사용하기
+	 */
+	public void test8() {
+		Bear bear = new Bear();
+		Runnable run = bear; // 다형성 적용
+		
+		bear.attack();
+		bear.say();
+		bear.run();
+		
+		// Runnable관련 기능만 사용가능
+		run.run(); // 동적바인딩
+		System.out.println(Runnable.LEG_NUM);
+		
+		Runnable[] runners = new Runnable[3];
+		runners[0] = new Tiger();
+		runners[1] = new Lion();
+		runners[2] = new Bear();
+		
+		for(Runnable runner : runners)
+			runner.run();
+	}
+	
+	/**
+	 * 메소드Override의 강제화
+	 *  - 부모메소드를 추상메소드로 만들면 반드시 자식클래스에서 구현해야한다.
+	 *  - 구현하지 않으면 컴파일오류 발생
+	 * 
+	 * 1. 추상클래스의 추상메소드
+	 * 2. 인터페이스의 추상메소드
+	 * 
+	 *  - 규격: Animal 모든 자식클래스는 say를 구현해야한다.
+	 */
+	public void test7() {
+		Animal[] animals = new Animal[3];
+		animals[0] = new Tiger();
+		animals[1] = new Lion();
+		animals[2] = new Bear();
+
+		for (int i = 0; i < animals.length; i++) {
+//			animals[i].say();
+			animals[i].attack();
+		}
+		
+		// 추상클래스는 객체를 생성할 수 없음
+//		Animal a = new Animal();
+	}
+	
 	
 	/**
 	 * 정적바인딩
@@ -137,12 +253,12 @@ public class AnimalMain {
 		t1.say(); // Animal#say
 		System.out.println(t1.hashCode()); // Object#hashCode
 		
-//		t2.punch(); // Tiger#punch 에러!
+//		animal.punch(); // Tiger#punch 에러!
 		animal.say(); // Animal#say
 		System.out.println(animal.hashCode()); // Object#hashCode
 
-//		t3.punch(); // Tiger#punch 에러!
-//		t3.say(); // Animal#say 에러!
+//		object.punch(); // Tiger#punch 에러!
+//		object.say(); // Animal#say 에러!
 		System.out.println(object.hashCode()); // Object#hashCode
 	}
 
