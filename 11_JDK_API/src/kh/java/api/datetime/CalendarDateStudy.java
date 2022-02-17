@@ -19,9 +19,9 @@ public class CalendarDateStudy {
 	public static void main(String[] args) {
 		CalendarDateStudy study = new CalendarDateStudy();
 //		study.test1();
-//		study.test2();
+		study.test2();
 //		study.test3();
-		study.test4();
+//		study.test4();
 	}
 	
 	/**

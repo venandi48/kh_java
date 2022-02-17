@@ -7,10 +7,10 @@ public class StringStudy {
 		StringStudy study = new StringStudy();
 //		study.test1();
 //		study.test2();
-//		study.test3();
+		study.test3();
 //		study.test4();
 //		study.test5();
-		study.test6();
+//		study.test6();
 	}
 	
 	/**

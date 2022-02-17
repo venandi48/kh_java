@@ -6,9 +6,9 @@ import java.util.List;
 public class WrapperClassStudy {
 	public static void main(String[] args) {
 		WrapperClassStudy study = new WrapperClassStudy();
-//		study.test1();
+		study.test1();
 //		study.test2();
-		study.test3();
+//		study.test3();
 	}
 
 	/**
