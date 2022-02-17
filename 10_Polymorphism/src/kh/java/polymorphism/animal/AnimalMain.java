@@ -13,10 +13,10 @@ public class AnimalMain {
 //		main.test6();
 //		main.test7();
 //		main.test8();
-//		main.test9();
+		main.test9();
 //		main.test10();
 //		main.test11();
-		main.test12();
+//		main.test12();
 		
 	}
 	
