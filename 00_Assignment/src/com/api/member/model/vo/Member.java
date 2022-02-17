@@ -1,4 +1,4 @@
-package com.api.mamber.model.vo;
+package com.api.member.model.vo;
 
 import java.util.Calendar;
 

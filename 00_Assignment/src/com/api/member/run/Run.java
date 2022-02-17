@@ -1,9 +1,9 @@
-package com.api.mamber.run;
+package com.api.member.run;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import com.api.mamber.model.vo.Member;
+import com.api.member.model.vo.Member;
 
 public class Run {
 	public static void main(String[] args) {
