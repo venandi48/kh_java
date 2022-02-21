@@ -48,12 +48,16 @@
     <fullyQualifiedTypeName name="member.abstractClass.model.vo.Member"/>
     <fullyQualifiedTypeName name="kh.java.api.wrapper.WrapperClassStudy"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.lang.Boolean"/>
     <fullyQualifiedTypeName name="kh.java.api.datetime.CalendarDateStudy"/>
-    <fullyQualifiedTypeName name="java.util.Calendar"/>
-    <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
     <fullyQualifiedTypeName name="kh.java.api.format.FormatDateNumberStudy"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="com.kh.test.Test"/>
+    <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
+    <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
+    <fullyQualifiedTypeName name="com.api.mamber.model.vo.Member"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="ncs.test7.Book"/>
+    <fullyQualifiedTypeName name="ncs.test8.BookUpdater"/>
 </qualifiedTypeNameHistroy>
