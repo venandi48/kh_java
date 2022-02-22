@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.oop.employee.model.vo.Employee"/>
-    <fullyQualifiedTypeName name="kh.java.object.array.PerosonMain"/>
-    <fullyQualifiedTypeName name="kh.java.object.array.person.StudentManager"/>
-    <fullyQualifiedTypeName name="com.opp.coffee.model.dto.Coffee"/>
-    <fullyQualifiedTypeName name="kh.java.inheritance.product.before.Desktop"/>
-    <fullyQualifiedTypeName name="kh.java.inheritance.product.before.SmartPhone"/>
-    <fullyQualifiedTypeName name="kh.java.inheritance.product.before.Tv"/>
-    <fullyQualifiedTypeName name="kh.java.inheritance.shape.Circle"/>
-    <fullyQualifiedTypeName name="member.inheritance.controller.MemberManager"/>
-    <fullyQualifiedTypeName name="member.inheritance.model.vo.Silver"/>
-    <fullyQualifiedTypeName name="member.inheritance.model.vo.Gold"/>
-    <fullyQualifiedTypeName name="member.inheritance.model.vo.Vip"/>
-    <fullyQualifiedTypeName name="member.inheritance.model.vo.VVip"/>
-    <fullyQualifiedTypeName name="java.util.Objects"/>
     <fullyQualifiedTypeName name="kh.java.polymorphism.animal.Animal"/>
     <fullyQualifiedTypeName name="kh.java.polymorphism.product.ProductMain"/>
     <fullyQualifiedTypeName name="member.controller.MemberManager"/>
@@ -52,12 +38,26 @@
     <fullyQualifiedTypeName name="kh.java.error.ThrowExceptionStudy"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
-    <fullyQualifiedTypeName name="java.io.FileReader"/>
-    <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
     <fullyQualifiedTypeName name="java.util.concurrent.ExecutionException"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="com.exception.charcheck.CharacterProcess"/>
+    <fullyQualifiedTypeName name="com.exception.number.NumberProcess"/>
     <fullyQualifiedTypeName name="com.exception.charcheck.CharCheckException"/>
     <fullyQualifiedTypeName name="com.exception.number.NumberRangeException"/>
-    <fullyQualifiedTypeName name="com.exception.number.NumberProcess"/>
+    <fullyQualifiedTypeName name="kh.java.io._byte.system.SystemIOStudy"/>
+    <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
+    <fullyQualifiedTypeName name="kh.java.io._byte.file.FileIOStudy"/>
+    <fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
+    <fullyQualifiedTypeName name="kh.java.io._char.file.FileRWStudy"/>
+    <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
+    <fullyQualifiedTypeName name="java.lang.IllegalAccessError"/>
+    <fullyQualifiedTypeName name="kh.java.io._byte.object.ObjectIOStudy"/>
+    <fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.io.EOFException"/>
 </qualifiedTypeNameHistroy>

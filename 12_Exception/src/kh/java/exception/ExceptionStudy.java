@@ -37,6 +37,8 @@ public class ExceptionStudy {
 	/**
 	 * try .. catch블럭
 	 *  변수 유효범위
+	 *  
+	 * 조기리턴 하더라도 finally구문은 실행됨
 	 */
 	public void test5() {
 		int a = 0;
