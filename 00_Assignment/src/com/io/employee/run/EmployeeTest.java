@@ -15,7 +15,7 @@ public class EmployeeTest {
 		hw.loadEmployee();
 	}
 
-	// 파일 출력
+	// 파일 입력
 	private void loadEmployee() {
 		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("employee.dat"))) {
 			for (int i = 0; i < 3; i++) {
@@ -28,7 +28,7 @@ public class EmployeeTest {
 		}
 	}
 
-	// 파일 입력
+	// 파일 출력
 	public void savaEmployee() {
 		Employee[] emp = new Employee[3];
 		emp[0] = new Employee(0, "신짱구", '남', "01011112222", "말썽부", 10_000, 0.02);
