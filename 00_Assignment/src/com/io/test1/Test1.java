@@ -22,7 +22,7 @@ public class Test1 {
 		FileWriter fw = null;
 
 		try {
-			System.out.println("읽을 대상파일명 입력 :");
+			System.out.println("저장파일명 입력 :");
 			String fileName = br.readLine();
 			// BufferedReader의 주스트림을 FileReader로 변경
 			fw = new FileWriter(new File(fileName));
