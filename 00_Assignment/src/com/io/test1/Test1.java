@@ -22,7 +22,11 @@ public class Test1 {
 		FileWriter fw = null;
 
 		try {
-			fw = new FileWriter(new File("fileSave.txt"));
+			System.out.println("읽을 대상파일명 입력 :");
+			String fileName = br.readLine();
+			// BufferedReader의 주스트림을 FileReader로 변경
+			fw = new FileWriter(new File(fileName));
+
 			System.out.println("파일에 저장할 내용을 입력하시오.");
 
 			while ((input = br.readLine()) != null) {
@@ -61,8 +65,6 @@ public class Test1 {
 			// 대상파일 선택
 			System.out.println("읽을 대상파일명 입력 :");
 			String fileName = br.readLine();
-			// BufferedReader의 주스트림을 FileReader로 변경
-			br = new BufferedReader(new FileReader(fileName));
 
 			// 파일 읽기용 스트림 객체
 			fr = new FileReader(fileName);
@@ -70,10 +72,9 @@ public class Test1 {
 			// 문자열 저장용 StringBuilder객체 생성
 			StringBuilder sb = new StringBuilder();
 
-			String line = null;
-			while ((line = br.readLine()) != null) {
-				sb.append(line);
-				sb.append("\n");
+			int data = 0;
+			while ((data = fr.read()) != -1) {
+				sb.append((char)data);
 			}
 
 			// 결과 출력
