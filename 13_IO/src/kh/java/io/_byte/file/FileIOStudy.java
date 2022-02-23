@@ -27,6 +27,10 @@ public class FileIOStudy {
 		
 		// 파일경로는 프로젝트 루트기준으로 조회
 		try {
+			// 절대주소 : 파일시스템 디렉토리의 최상위구조
+			// 	- c:/~ (Windows), / (Mac, Linux)
+			// 상대주소 : 프로젝트디렉토리 기준
+			//  - C:/, / 로 시작하지 않는 경우
 			bis = new BufferedInputStream(new FileInputStream("C:/Users/ej_lee/Desktop/새 폴더/♥/보정본/KakaoTalk_20220207_095102973_01.jpg"
 					+ ""));
 			bos = new BufferedOutputStream(new FileOutputStream("photoCopy.jpg")); 

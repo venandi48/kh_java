@@ -1,5 +1,7 @@
 package kh.java.io._byte.object;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,7 +16,66 @@ public class ObjectIOStudy {
 		ObjectIOStudy study = new ObjectIOStudy();
 //		study.test1();
 //		study.test2();
-		study.test3();
+//		study.test3();
+//		study.test4();
+		study.test5();
+	}
+	
+	public void test5() {
+		User[] users = new User[3];
+		users[0] = new User("honggd", "1234", 1000);
+		users[1] = new User("ssinsa", "1234", 2000);
+		users[2] = new User("sejong", "1234", 3000);
+		for (User u : users)
+			System.out.println(u.hashCode());
+
+		User[] userArr = new User[users.length];
+		for (int i = 0; i < users.length; i++) {
+			userArr[i] = new User(users[i].getId(), users[i].getPw(), users[i].getPoint());
+			System.out.println(userArr[i].hashCode());
+		}
+	}
+	
+	/**
+	 * User[]을 ObjectOutputStream으로 출력하기
+	 */
+	public void test4() {
+		User[] users = new User[3];
+		users[0] = new User("hong", "1234", 1000);
+		users[1] = new User("sinsa", "1234", 2000);
+		users[2] = new User("kingSJ", "1234", 3000);
+		
+		System.out.println("출력 전!");
+		for(User user : users)
+			System.out.println(user.hashCode());
+
+		// usersArr.ser 파일에 User[]객체를 출력
+		// 1. 스트림 생성 - try with resource절
+		// 2. 출력
+		// 3. 스트림 반납 - try with resource절
+		try (ObjectOutputStream oos = new ObjectOutputStream(
+				new BufferedOutputStream(new FileOutputStream("usersArr.ser")))) {
+
+			oos.writeObject(users);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("User[] 출력 완료!");
+
+		// uesrsArr.ser파일로부터 User[] 읽어오기
+		// 1. 스트림 생성 - try with resource절
+		// 2. 출력
+		// 3. 스트림 반납 - try with resource절
+		try (ObjectInputStream ois = new ObjectInputStream(
+				new BufferedInputStream(new FileInputStream("usersArr.ser")))) {
+			User[] usersArr = (User[]) ois.readObject();
+			
+			for(User user : usersArr)
+				System.out.println(user.hashCode());
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**

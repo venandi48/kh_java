@@ -5,6 +5,8 @@ import java.io.Serializable;
 /**
  * 
  * 객체입출력 할 클래스는 반드시 Serializable인터페이스를 구현해야 함
+ *  - 참조형 필드인 경우 해당 클래스 또한 Serializable을 구현해야 함.
+ *  - 사용자 클래스인 경우 주의할 것.
  *
  */
 public class User implements Serializable {
@@ -16,7 +18,7 @@ public class User implements Serializable {
 	
 	
 	private String id;
-	private String pw;
+	private transient String pw; // transient: jvm이 관리하되 직렬화 시에 제외
 	private int point;
 
 	public User() {
