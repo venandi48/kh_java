@@ -1,5 +1,7 @@
 package com.io.test4.controller;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -27,29 +29,29 @@ public class BookManager {
 		books[3] = new Book("듄", "프랭크 허버트", 22_500, new GregorianCalendar(2021, 1 - 1, 22));
 		books[4] = new Book("사피엔스", "유발 하라리", 22_000, new GregorianCalendar(2015, 11 - 1, 23));
 
-		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("books.dat"))) {
+		try (ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("test4/books.dat")))) {
 			oos.writeObject(books);
+			System.out.println("books.dat 에 저장 완료!");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		System.out.println("books.dat 에 저장 완료!");
 	}
 
 	// 프로그램으로 객체 입력 메소드
 	public void fileRead() {
 		Book[] books;
 
-		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("books.dat"))) {
+		try (ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream("test4/books.dat")))) {
 			books = (Book[]) ois.readObject();
 			
 			for(Book b : books)
 				System.out.println(b.toString());
 
+			System.out.println("books.dat 읽기 완료!");
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		System.out.println("books.dat 읽기 완료!");
 		
 	}
 }

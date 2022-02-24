@@ -1,9 +1,13 @@
 package kh.java.collections.list;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ArrayListStudy {
@@ -13,7 +17,103 @@ public class ArrayListStudy {
 //		study.test1();
 //		study.test2();
 //		study.test3();
-		study.test4();
+//		study.test4();
+//		study.test5();
+//		study.test6();
+		study.test7();
+	}
+	
+	
+	/**
+	 * LinkedList
+	 *  - 중간에 요소 추가/삭제가 빈번히 일어나는 데이터를 관리한다면 LinkedList를 사용하자.
+	 */
+	public void test7() {
+		List<Integer> list = new LinkedList<>();
+		list.add(3);
+		list.add(2);
+		list.add(4);
+		list.add(5);
+		list.add(1);
+		System.out.println(list);
+	}
+	
+	/**
+	 * 커스텀 객체 정렬하기
+	 *  - 기본정렬기준(1개) 
+	 *  	: 해당 클래스(Student)가 Comparable인터페이스 구현
+	 *  - 그외정렬기준(n개)
+	 *  	: 별도의 Comparator구현클래스 생성(정렬기준당 1개)
+	 *  
+	 *  - no 오름차순 (기본정렬로 선택)
+	 *  - no 내림차순
+	 *  - name 오름차순
+	 *  - name 내림차순
+	 */
+	public void test6() {
+		List<Student> studentList = new ArrayList<>();
+		studentList.add(new Student(3, "세종대왕"));
+		studentList.add(new Student(2, "신사임당"));
+		studentList.add(new Student(5, "장영실"));
+		studentList.add(new Student(1, "홍길동"));
+		studentList.add(new Student(4, "이순신"));
+
+		for (int i = 0; i < studentList.size(); i++)
+			System.out.println(i + " " + studentList.get(i)); // 저장 순서대로 출력
+		System.out.println();
+
+		// Student가 Comparable인터페이스 구현하지 않으면 오류
+//		Collections.sort(studentList);
+//		for (int i = 0; i < studentList.size(); i++)
+//			System.out.println(i + " " + studentList.get(i)); // no 오름차순 정렬 출력
+//		System.out.println();
+//
+//		Comparator<Student> cp = Collections.reverseOrder();
+//		Collections.sort(studentList, cp);
+//		for (int i = 0; i < studentList.size(); i++)
+//			System.out.println(i + " " + studentList.get(i)); // no 내림차순 정렬 출력
+		
+		// 기타정렬 & 기타정렬 역순
+		Comparator<Student> cp = new StudentNameComparator();
+		Collections.sort(studentList, cp);
+		for (int i = 0; i < studentList.size(); i++)
+			System.out.println(i + " " + studentList.get(i)); // name 오름차순 정렬 출력
+		System.out.println();
+
+		cp = Collections.reverseOrder(new StudentNameComparator());
+		Collections.sort(studentList, cp);
+		for (int i = 0; i < studentList.size(); i++)
+			System.out.println(i + " " + studentList.get(i)); // name 내림차순 정렬 출력
+	}
+	
+	/**
+	 * 정렬하기
+	 */
+	public void test5() {
+		// 숫자 리스트
+		List<Integer> list = new ArrayList<>();
+		list.add(3);
+		list.add(2);
+		list.add(5);
+		list.add(4);
+		list.add(1);
+		System.out.println(list);
+
+		// 정렬
+		Collections.sort(list); // 기본정렬(오름차순)
+		System.out.println(list);
+
+		Comparator<Integer> comparator = Collections.reverseOrder(); // Comparator란 비교객체이다.
+		Collections.sort(list, comparator); // 역순정렬(내림차순)
+		System.out.println(list);
+
+		// 이름정렬
+		List<String> names = Arrays.asList("홍길동", "신사임당", "고주몽", "장영실"); // List<Generic>반환
+		Collections.sort(names);
+		System.out.println(names); // 오름차순 출력
+		Comparator<String> cp = Collections.reverseOrder();
+		Collections.sort(names, cp);
+		System.out.println(names); // 내림차순 출력
 	}
 	
 	/**
@@ -141,10 +241,10 @@ public class ArrayListStudy {
 
 //		List<int> intList = new ArrayList<int>(); //기본형 불가
 		List<Integer> intList = new ArrayList<Integer>();
-		intList.add(3); // autodoxint(int->Integer)처리 후 추가
+		intList.add(3); // autoboxing(int->Integer)처리 후 추가
 		intList.add(Integer.valueOf(3));
 		Integer i0 = intList.get(0);
-		int i1 = intList.get(1); // autodoxint(int->Integer)
+		int i1 = intList.get(1); // autoboxing(int->Integer)
 		System.out.println(i0);
 		System.out.println(i1);
 		

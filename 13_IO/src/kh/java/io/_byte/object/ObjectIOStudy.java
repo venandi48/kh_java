@@ -34,6 +34,12 @@ public class ObjectIOStudy {
 			userArr[i] = new User(users[i].getId(), users[i].getPw(), users[i].getPoint());
 			System.out.println(userArr[i].hashCode());
 		}
+		
+		// 생성자 만들면 아래도 가능
+//		User[] copyUsers = new User[users.length];
+//		for(int i = 0; i < users.length; i++) {
+//			copyUsers[i] = new User(users[i]); 
+//		}
 	}
 	
 	/**

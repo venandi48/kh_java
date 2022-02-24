@@ -62,4 +62,13 @@ public class User implements Serializable {
 		return "User [id=" + id + ", pw=" + pw + ", point=" + point + "]";
 	}
 
+	/**
+	 * 복사생성자
+	 * @param other
+	 */
+	public User(User other) {
+		this.id = other.id;
+		this.pw = other.pw;
+		this.point = other.point;
+	}
 }
