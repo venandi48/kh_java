@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import kh.java.collections.list.Student;
 
 public class HashSetStudy {
 	public static void main(String[] args) {
@@ -101,7 +100,9 @@ public class HashSetStudy {
 		set.add(new Student(1, "홍길동"));
 		set.add(new Student(2, "신사임당"));
 		set.add(new Student(3, "이순신"));
-		set.add(new Student(1, "홍길동")); // 중복 데이터
+		set.add(new Student(1, "홍길동"));
+		set.add(new Student(1, "김길동")); // 학생번호 중복, 이름 중복X
+		set.add(new Student(4, new String("홍길동"))); // 학생번호 중복X, 이름 중복
 
 		// 오버라이드 전: 동일한 요소값이여도 다른객체로 파악하여 제거X
 		// 오버라이드 후: 요소의 내용이 같으면 같은 객체로 파악하여 제거
