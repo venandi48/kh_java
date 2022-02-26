@@ -61,7 +61,7 @@ public class Book implements Serializable {
 	@Override
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 출간");
-		String formattedDate = sdf.format(dates.getTime());
+		String formattedDate = sdf.format(dates.getTimeInMillis());
 
 		return "Book [title=" + title + ", author=" + author + ", price=" + price + ", dates=" + formattedDate + "]";
 	}

@@ -13,7 +13,7 @@ public class Test {
 		while (true) {
 			System.out.print("문자열 입력:");
 			String str = sc.nextLine();
-			if (str == "exit")
+			if (str.equals("exit"))
 				break;
 			else
 				System.out.println(str.length() + "글자임");
