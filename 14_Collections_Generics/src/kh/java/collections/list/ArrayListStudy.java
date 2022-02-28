@@ -19,8 +19,8 @@ public class ArrayListStudy {
 //		study.test3();
 //		study.test4();
 //		study.test5();
-//		study.test6();
-		study.test7();
+		study.test6();
+//		study.test7();
 	}
 	
 	
