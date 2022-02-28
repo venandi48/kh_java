@@ -1,9 +1,9 @@
-package com.collection.list.book.run;
+package com.collection.map.book;
 
 import java.util.Scanner;
 
-import com.collection.list.book.controller.BookManager;
 import com.collection.list.book.model.vo.Book;
+import com.collection.map.book.controller.MapBookManager;
 
 public class TestBookManager {
 
@@ -13,7 +13,7 @@ public class TestBookManager {
 		TestBookManager hw = new TestBookManager();
 		hw.menu();
 	}
-	
+
 	public void menu() {
 		String menu = "*** 도서 관리 프로그램 ***\n"
 				+ "1. 새 도서 추가\n"
@@ -24,38 +24,38 @@ public class TestBookManager {
 				+ "6. 끝내기\n"
 				+ "------------------------\n"
 				+ "메뉴선택 > ";
-		BookManager bm = new BookManager();
+		MapBookManager mbm = new MapBookManager();
 
 		while (true) {
 			System.out.print(menu);
 			int choice = sc.nextInt();
 			sc.nextLine(); // 버퍼비우기
-			int index;
+			String rst;
 
 			switch (choice) {
 			case 1:
 				Book book = inputBook();
-				bm.addBook(book);
+				mbm.putBook(book);
 				break;
 			case 2:
-				bm.printBookList(bm.sortedBookList());
+				mbm.printBook(mbm.sortedBookMap());
 				break;
 			case 3:
-				index = bm.searchBook(inputBookTitle());
-				if (index == -1)
+				rst = mbm.searchBook(inputBookTitle());
+				if (rst == null)
 					System.out.println("도서를 찾을 수 없습니다.");
 				else
-					bm.deleteBook(index);
+					mbm.deleteBook(rst);
 				break;
 			case 4:
-				index = bm.searchBook(inputBookTitle());
-				if (index == -1)
+				rst = mbm.searchBook(inputBookTitle());
+				if (rst == null)
 					System.out.println("도서를 찾을 수 없습니다.");
 				else
-					bm.printBook(index);
+					mbm.printBook(rst);
 				break;
 			case 5:
-				bm.printAll();
+				mbm.displayAll();
 				break;
 			case 6:
 				System.out.println("프로그램을 종료합니다.");
@@ -88,3 +88,4 @@ public class TestBookManager {
 		return sc.nextLine();
 	}
 }
+
