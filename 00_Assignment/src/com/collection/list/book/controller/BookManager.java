@@ -14,11 +14,7 @@ public class BookManager {
 
 	public BookManager() {
 		super();
-
 		bookList = new ArrayList<>();
-		bookList.add(new Book("400", 4, "오만과 편견", "제인 오스틴"));
-		bookList.add(new Book("401", 4, "아몬드", "손원평"));
-		bookList.add(new Book("100", 1, "사피엔스", "유발 하라리"));
 	}
 
 	public BookManager(ArrayList<Book> bookList) {
