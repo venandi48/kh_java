@@ -6,7 +6,7 @@ public class MusicSingerComparator implements Comparator<Music> {
 
 	@Override
 	public int compare(Music o1, Music o2) {
-		return o1.getSiger().compareTo(o2.getSiger());
+		return o1.getSinger().compareTo(o2.getSinger());
 	}
 
 }

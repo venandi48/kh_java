@@ -85,7 +85,7 @@ public class MusicManager {
 		List<Music> result = new ArrayList<>();
 
 		for (Music m : musicList) {
-			if (m.getSiger().contains(singer))
+			if (m.getSinger().contains(singer))
 				result.add(m);
 		}
 

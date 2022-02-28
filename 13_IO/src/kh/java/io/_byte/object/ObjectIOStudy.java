@@ -15,10 +15,10 @@ public class ObjectIOStudy {
 	public static void main(String[] args) {
 		ObjectIOStudy study = new ObjectIOStudy();
 //		study.test1();
-//		study.test2();
+		study.test2();
 //		study.test3();
 //		study.test4();
-		study.test5();
+//		study.test5();
 	}
 	
 	public void test5() {

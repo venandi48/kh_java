@@ -56,7 +56,7 @@ public class Student implements Comparable<Student> {
 	@Override
 	public boolean equals(Object o) {
 		Student other = (Student) o;
-		if (this.no == other.no && this.name == other.name)
+		if (this.no == other.no && this.name.equals(other.name))
 			return true;
 		else
 			return false;

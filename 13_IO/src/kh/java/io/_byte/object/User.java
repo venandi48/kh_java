@@ -14,8 +14,7 @@ public class User implements Serializable {
 	/**
 	 * 직렬화된 정보와 일치하는 클래스인지 비교하는 고유값 
 	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1L;	
 	
 	private String id;
 	private transient String pw; // transient: jvm이 관리하되 직렬화 시에 제외

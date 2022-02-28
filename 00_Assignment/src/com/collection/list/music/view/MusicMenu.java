@@ -1,6 +1,8 @@
 package com.collection.list.music.view;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -45,9 +47,6 @@ public class MusicMenu {
 			sc.nextLine(); // 버퍼비우기
 			
 			List<Music> musicList = null;
-			String song = "";
-			String singer = "";
-			
 
 			switch (choice) {
 			case "1":
@@ -65,7 +64,7 @@ public class MusicMenu {
 				break;
 			case "5":
 				System.out.println("[교체할 곡 선택]");
-				Music old = new Music(inputTitle(), "");
+				Music old = inputMusic();
 				System.out.println("[신규 곡 입력]");
 				manager.replaceMusic(old, inputMusic());
 				break;
@@ -88,7 +87,7 @@ public class MusicMenu {
 
 	private void printList(List<Music> musicList) {
 		for(Music music : musicList)
-			System.out.println(music.getTitle()+"-"+music.getSiger());
+			System.out.println(music.getTitle()+"-"+music.getSinger());
 	}
 	
 	public String inputTitle() {
@@ -122,6 +121,9 @@ public class MusicMenu {
 			System.out.print(menu);
 			String choice = sc.next();
 			sc.nextLine(); // 버퍼비우기
+			
+			Comparator<Music> cp = null;
+			List<Music> list = new ArrayList<>();
 			
 			switch(choice) {
 			case "1":
