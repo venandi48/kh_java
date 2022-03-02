@@ -38,7 +38,7 @@ public class TestBookManager {
 				mbm.putBook(book);
 				break;
 			case 2:
-				mbm.printBook(mbm.sortedBookMap());
+				mbm.printBookMap(mbm.sortedBookMap());
 				break;
 			case 3:
 				rst = mbm.searchBook(inputBookTitle());

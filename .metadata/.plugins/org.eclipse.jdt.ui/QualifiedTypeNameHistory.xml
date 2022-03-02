@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.io.File"/>
-    <fullyQualifiedTypeName name="java.lang.IllegalAccessError"/>
     <fullyQualifiedTypeName name="kh.java.io._byte.object.ObjectIOStudy"/>
     <fullyQualifiedTypeName name="java.io.EOFException"/>
     <fullyQualifiedTypeName name="java.io.FileReader"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="com.collection.list.book.model.vo.Book"/>
     <fullyQualifiedTypeName name="com.collection.map.book.TestBookManager"/>
     <fullyQualifiedTypeName name="com.collection.list.book.model.compare.AscCategory"/>
+    <fullyQualifiedTypeName name="study.withoutcode.algorithm.array.BinarySearchStudy"/>
+    <fullyQualifiedTypeName name="study.withoutcode.algorithm.array.MoveZeroesStudy"/>
 </qualifiedTypeNameHistroy>
