@@ -6,7 +6,8 @@ public class UpperAlphabetThread implements Runnable {
 	public void run() {
 		char ch = 'A';
 		for (int i = 0; i < 26; i++) {
-			System.out.print((char) (ch + i) + ", ");
+			System.out.print((char) (ch + i));
 		}
+		System.out.print("[" + Thread.currentThread().getName() + "종료]");
 	}
 }
