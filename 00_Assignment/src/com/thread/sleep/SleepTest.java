@@ -19,7 +19,7 @@ public class SleepTest {
 				"밑 빠진 독에 물 붓기"};
 		
 		for (int i = 0; i < 10; i++) {
-			int n = (int) (Math.random() * 10 + 1);
+			int n = (int) (Math.random() * 10);
 			System.out.println(proverb[n]);
 			try {
 				Thread.sleep(3000);
