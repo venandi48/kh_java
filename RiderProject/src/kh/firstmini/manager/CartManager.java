@@ -5,6 +5,17 @@ import java.util.Scanner;
 import kh.firstmini.vo.Cart;
 import kh.firstmini.vo.Menu;
 
+/**
+ * 
+ * @author ej_lee
+ * 
+ * 실행방법 
+ *  1. 객체 생성
+ *  	- 생성자 : CartManager(Cart c)
+ *  2. cartManagerStart() 메소드 호출
+ *
+ */
+
 public class CartManager {
 
 	Cart myCart;
