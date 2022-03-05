@@ -1,6 +1,8 @@
 package kh.firstmini.manager;
 
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 import kh.firstmini.vo.Cart;
 import kh.firstmini.vo.Menu;
@@ -44,6 +46,7 @@ public class CartManager {
 				removeCartMenu(); // 메뉴제외
 				break;
 			case "2":
+				modifyMenu();
 				// 주문수량
 				break;
 			case "3":
@@ -69,8 +72,13 @@ public class CartManager {
 		System.out.print(topStr);
 
 		if (isCartEmpty() != true) {
-			for (Menu m : myCart.getMenuList())
-				System.out.println(m);
+			// 메뉴와 수량 출력
+			Set<Map.Entry<Menu, Integer>> entrySet = myCart.getMenuCountMap().entrySet();
+			for(Map.Entry<Menu, Integer> entry : entrySet) {
+				System.out.print(entry.getKey()+ ", 수량=" + entry.getValue() +"\n");
+			}
+			// 총액 출력
+			System.out.println("합계금액: " + myCart.getTotalPrice());
 		}
 		System.out.print(underStr);
 	}
@@ -103,10 +111,10 @@ public class CartManager {
 	// - 조건식 searchMenu(String) 으로 바꿔야함
 	private boolean removeMenu(String removeName) {
 
-		for (Menu m : myCart.getMenuList()) {
+		for (Menu m : myCart.getCartList()) {
 			// 제외할 메뉴를 찾으면 카트목록에서 제거 && true리턴
 			if ((m.getMenuName().equals(removeName)) != false) {
-				myCart.getMenuList().remove(m);
+				myCart.getCartList().remove(m);
 				System.out.println("장바구니에서 제외 되었습니다.");
 				return true;
 			}
@@ -115,8 +123,8 @@ public class CartManager {
 		return false;
 	}
 
-	// 메뉴수량 증가 (=주문량 수정)
-	public void addMenu() {
+	// 메뉴수량(주문량) 수정
+	public void modifyMenu() {
 
 		// 장바구니에 아무것도 없으면 탈출
 		if (isCartEmpty() == true)
@@ -129,23 +137,34 @@ public class CartManager {
 			if (inputLine.equals("exit"))
 				return;
 			
-			//미완성
-			if (addMenuCount(inputLine)!=false) {
-				
-			}
+			modifyCount(inputLine);
+			return;
 		}
 
 	}
 
 	// 선택메뉴 수량 정정 : 성공하면 t리턴, 아니면 f리턴
 	// - 조건식 searchMenu(String) 으로 바꿔야함
-	public boolean addMenuCount(String updateName) {
-		for (Menu m : myCart.getMenuList()) {
-			if ((m.getMenuName().equals(updateName)) != false) {
-				
+	public void modifyCount(String updateName) {
+		int afterCount = 0;
+		
+		// 양수만 입력받기
+		while (true) {
+			System.out.print("몇 개로 정정하시겠습니까?(양수입력) > ");
+			String tmp = sc.nextLine();
+			try {
+				afterCount = Integer.parseInt(tmp);
+			} catch (NumberFormatException e) {
+				System.out.println("숫자만 입력하세요.");
 			}
+			if (afterCount > 0)
+				break;
+			else
+				System.out.println("정정값이 0보다 작습니다.");
 		}
-		return true;
+		
+		myCart.modifyMenuCountMap(updateName, afterCount);
+		return;
 	}
 
 	// 주문확정
@@ -157,7 +176,7 @@ public class CartManager {
 	// 장바구니 비어있으면 출력 & t리턴
 	// 장바구니에 뭔가 있으면 f리턴
 	public boolean isCartEmpty() {
-		if (myCart.getMenuList().size() <= 0) {
+		if (myCart.getCartList().size() <= 0) {
 			System.out.println("장바구니가 비어있습니다.");
 			return true;
 		} else
