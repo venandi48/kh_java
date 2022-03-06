@@ -1,10 +1,11 @@
 package kh.firstmini.vo;
 
+import java.util.Objects;
+
 public class Menu {
     private String storeID;
     private String menuName;
     private int price;
-    private int count = 0;
     
     public Menu() {
         super();
@@ -43,4 +44,12 @@ public class Menu {
     }
     
     
+    public boolean equalsStoreID(Object o) {
+    	Menu other = (Menu) o;
+    	if (this.storeID.equals(other.storeID)) // 필드 비교
+    		return true;
+    	else
+    		return false;
+    }
+
 }

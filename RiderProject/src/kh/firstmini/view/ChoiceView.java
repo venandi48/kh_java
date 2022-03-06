@@ -16,7 +16,8 @@ public class ChoiceView {
 		super();
 
 		// 임의로 추가한 데이터입니다 -이은지
-		storeMap.put("1000", new Store("1000", "메가커피", "0211113333", 2000, 10000, "강남구", "10:00~20:00"));
+		storeMap.put("1234", new Store("1234", "메가커피", "0211113333", 2000, 10000, "강남구", "10:00~20:00"));
+		storeMap.put("5678", new Store("5678", "엽기떡볶이", "0255557777", 3500, 15000, "용산구", "10:00~20:00"));
 	}
 
 	public void ChoiceViewMain() {
@@ -28,8 +29,9 @@ public class ChoiceView {
 			
 			//사용자가 점포선택하고나면
 			
-			MenuManager mm = new MenuManager("1000", myCart);
+			MenuManager mm = new MenuManager("1000", myCart, storeMap);
 			mm.menuManagerMenu();
+			System.out.println("홈입니다");
 			return;
 		}
 

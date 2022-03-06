@@ -1,11 +1,16 @@
 package kh.firstmini.manager;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
 import kh.firstmini.vo.Cart;
 import kh.firstmini.vo.Menu;
+import kh.firstmini.vo.Store;
 
 /**
  * 
@@ -13,8 +18,10 @@ import kh.firstmini.vo.Menu;
  * 
  * 실행방법 
  *  1. 객체 생성
- *  	- 생성자 : CartManager(Cart c)
+ *  	- 생성자 : CartManager(Cart c, Map<String, Store> storeMap)
  *  2. cartManagerStart() 메소드 호출
+ *  	- 주문확정 이후 true 리턴
+ *  	- 단순 뒤로가기 누르면 false 리턴
  *
  */
 
@@ -23,17 +30,19 @@ public class CartManager {
 	Cart myCart;
 	Scanner sc = new Scanner(System.in);
 	String inputLine = "";
+	Map<String, Store> storeMap; // 프로그램이 관리하는 전체 점포 목록
 
-	public CartManager(Cart c) {
+	// 생성자
+	public CartManager(Cart c, Map<String, Store> storeMap) {
 		super();
 		myCart = c; // 프로그램 공통으로 쓰일 카트 객체
+		this.storeMap = storeMap;
 	}
 
 	// CartManager기능들 실행하는 메소드
-	public void cartManagerStart() {
+	public boolean cartManagerStart() {
 
-		Out: while (true) {
-
+		while (true) {
 			// 현재 장바구니 상태 출력
 			printCart();
 
@@ -46,39 +55,49 @@ public class CartManager {
 				removeCartMenu(); // 메뉴제외
 				break;
 			case "2":
-				modifyMenu();
-				// 주문수량
+				modifyMenu(); // 주문수량
 				break;
 			case "3":
-				// 주문확정
-				break;
+				orderCheck(); // 주문확정
+				return true;
 			case "4":
-				break Out; // 뒤로가기 =MenuManager로 복귀
+				return false; // 뒤로가기 =MenuManager로 복귀
 			default:
-				System.out.println("스위치디폴트");
+				System.out.println("다시 입력해주세요.");
 			}
 		}
-		System.out.println("out탈출");
-		return;
 	}
 
 	// 현재 장바구니 출력
 	public void printCart() {
 		String topStr = "============================== 당신의 장바구니 ==============================\n";
 		String underStr = "-------------------------------------------------------------------------\n"
-				+ "1. 메뉴제외\t\t2.주문량 수정\t\t3.주문확정\t\t4.뒤로가기\n"
+				+ "1. 메뉴제외\t\t2.주문량 수정\t\t3.주문하기\t\t4.뒤로가기\n"
 				+ "=========================================================================\n";
 
 		System.out.print(topStr);
 
 		if (isCartEmpty() != true) {
 			// 메뉴와 수량 출력
-			Set<Map.Entry<Menu, Integer>> entrySet = myCart.getMenuCountMap().entrySet();
-			for(Map.Entry<Menu, Integer> entry : entrySet) {
-				System.out.print(entry.getKey()+ ", 수량=" + entry.getValue() +"\n");
+			Set<Map.Entry<Menu, Integer>> menuEntrySet = myCart.getMenuCountMap().entrySet();
+			for (Map.Entry<Menu, Integer> menuEntry : menuEntrySet) {
+				Menu key = menuEntry.getKey();
+				int count = (int) menuEntry.getValue();
+
+				String storeName = "";
+				Set<Map.Entry<String, Store>> storeEntrySet = storeMap.entrySet();
+				for (Map.Entry<String, Store> storeEntry : storeEntrySet) {
+					// 매장목록 안의 storeID와 카트 내 메뉴의 storeID가 일치하면
+					if (storeEntry.getKey().equals(key.getStoreID())) {
+						storeName = storeEntry.getValue().getStoreName();
+					}
+				}
+
+				System.out.printf("[%s] %8s\t%d개\t%,d원\n", storeName, key.getMenuName(), count, key.getPrice() * count);
 			}
 			// 총액 출력
-			System.out.println("합계금액: " + myCart.getTotalPrice());
+			DecimalFormat df = new DecimalFormat("#,###");
+			System.out.println("합계금액: " + df.format(myCart.getTotalPrice()));
 		}
 		System.out.print(underStr);
 	}
@@ -97,7 +116,7 @@ public class CartManager {
 				return;
 
 			// 사용자가 입력한 메뉴가 카트 내에 있을 경우
-			if (removeMenu(inputLine) !=false) {
+			if (removeMenu(inputLine) != false) {
 				return;
 			} else {
 				// 사용자가 입력한 메뉴가 없을 경우
@@ -115,6 +134,7 @@ public class CartManager {
 			// 제외할 메뉴를 찾으면 카트목록에서 제거 && true리턴
 			if ((m.getMenuName().equals(removeName)) != false) {
 				myCart.getCartList().remove(m);
+				myCart.modifyMenuCountMap(removeName, 0);
 				System.out.println("장바구니에서 제외 되었습니다.");
 				return true;
 			}
@@ -133,10 +153,10 @@ public class CartManager {
 		while (true) {
 			System.out.print("[뒤로가기 : exit]\t수정할 메뉴 이름 > ");
 			inputLine = sc.nextLine();
-			
+
 			if (inputLine.equals("exit"))
 				return;
-			
+
 			modifyCount(inputLine);
 			return;
 		}
@@ -147,7 +167,7 @@ public class CartManager {
 	// - 조건식 searchMenu(String) 으로 바꿔야함
 	public void modifyCount(String updateName) {
 		int afterCount = 0;
-		
+
 		// 양수만 입력받기
 		while (true) {
 			System.out.print("몇 개로 정정하시겠습니까?(양수입력) > ");
@@ -162,7 +182,7 @@ public class CartManager {
 			else
 				System.out.println("정정값이 0보다 작습니다.");
 		}
-		
+
 		myCart.modifyMenuCountMap(updateName, afterCount);
 		return;
 	}
@@ -170,7 +190,40 @@ public class CartManager {
 	// 주문확정
 	// 주문내역(메뉴금액+배달팁+총액) 보여주고 주문
 	public void orderCheck() {
+		if (isCartEmpty() == true)
+			return;
 
+		System.out.println("-----------------------------------");
+		System.out.println("(배달안내) 고객님의 주문이 접수되었습니다.\n");
+
+		SimpleDateFormat sdf = new SimpleDateFormat("M월 d일 a h:mm");
+		String today = sdf.format(new GregorianCalendar().getTime());
+		System.out.println("- 주문일시: " + today);
+
+		DecimalFormat df = new DecimalFormat("#,###");
+		System.out.println("- 상품금액: " + df.format(myCart.getTotalPrice()) + "원");
+
+		// 배달팁
+		System.out.println("- 배달팁: ");
+		Set<String> cartIdSet = new HashSet<>();
+		// 카트에 있는 메뉴들의 storeID로 Set 만들기
+		for (Menu m : myCart.getCartList()) {
+			cartIdSet.add(m.getStoreID());
+		}
+
+		int totalRiderTip = 0;
+		for (String s : cartIdSet) {
+			Store store = storeMap.get(s);
+			System.out.printf("   %s %,d원%n", store.getStoreName(), store.getRiderTip());
+			totalRiderTip += store.getRiderTip();
+		}
+
+		int lastPrice = myCart.getTotalPrice() + totalRiderTip;
+		System.out.println("- 총 결제금액: " + df.format(lastPrice) + "원");
+		System.out.println("-----------------------------------\n");
+
+		// 장바구니 초기화
+		myCart.resetCart();
 	}
 
 	// 장바구니 비어있으면 출력 & t리턴

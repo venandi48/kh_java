@@ -4,21 +4,36 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Cart {
 	private int totalPrice;
-	private List<Menu> cartList = new ArrayList<>();
 	private Map<Menu, Integer> menuCountMap = new HashMap<>(); // 메뉴 별 수량 저장
+	private List<Menu> cartList = new ArrayList<>(menuCountMap.keySet());
+	
+	// 장바구니 초기화
+	public void resetCart() {
+		setTotalPrice(0);
+		menuCountMap.clear();
+		cartList.clear();
+	}
 
 	// 수량정정
 	public void modifyMenuCountMap(String menuName, int afterNum) {
-		for (Menu menu : cartList) {
-			// 이미 카트 안에 담겨있는 메뉴
+		Set<Map.Entry<Menu, Integer>> menuEntrySet = menuCountMap.entrySet();
+		for (Map.Entry<Menu, Integer> menuEntry : menuEntrySet) {
+			// 이미 카트 안에 담겨있는 메뉴만
+			Menu menu = menuEntry.getKey();
 			if (menu.getMenuName().equals(menuName)) {
 				int beforeNum = menuCountMap.get(menu);
 				int diff = afterNum - beforeNum;
 
-				menuCountMap.put(menu, afterNum);
+				if (afterNum == 0) {
+					menuCountMap.remove(menu);
+				} else {
+					menuCountMap.put(menu, afterNum);
+				}
+				cartList = new ArrayList<>(menuCountMap.keySet());
 				totalPrice += diff * menu.getPrice();
 				return;
 			}
@@ -62,7 +77,9 @@ public class Cart {
 
 	public Cart() {
 		super();
-		cartList = new ArrayList<Menu>();
+		totalPrice = 0;
+		menuCountMap = new HashMap<>();
+		cartList = new ArrayList<>(menuCountMap.keySet());
 		// TODO Auto-generated constructor stub
 	}
 
