@@ -12,11 +12,9 @@ import kh.firstmini.vo.Store;
 
 public class MenuManager {
     
-	Scanner sc = new Scanner(System.in);
+	private Scanner sc = new Scanner(System.in);
 	private String choice;
 	private Cart myCart;
-	private CartManager cm;
-	private Menu menu;
 	private List<Menu> list = new ArrayList<>();
 	private Map<String, Store> storeMap; // 프로그램이 관리하는 전체 매장
 	private String storeID;
@@ -44,7 +42,7 @@ public class MenuManager {
 		int i = 1;
 		for (Menu m : list) {
 			if (storeID.equals(m.getStoreID()))
-				System.out.println((i++) + ". " + m.getMenuName() + " ------- " + m.getPrice() + "원");
+				System.out.printf("%d. %s  --------------  %,d원%n", i++, m.getMenuName(),m.getPrice());
 		}
 		i = 1;
 	}
@@ -64,19 +62,16 @@ public class MenuManager {
 
 	public boolean menuChoice() {
 		while(true) {			
-			String str = "-------------------------\n"
-					   + "0. 주문완료\n"
-					   + "9. 처음으로	\n"
-					   + "-------------------------";		   
+			String str = "----------------------------------------------------\n";		   
 			
-			System.out.println("---------- 메뉴 ----------");
+			System.out.println("\n----------------------- menu -----------------------");
 			allMenuPrint();
 			System.out.println(str);
 			
-			System.out.print("0이나 9 or 메뉴이름을 입력하세요. : ");
+			System.out.print("[뒤로가기 : exit, 주문완료 : ok] 메뉴이름 입력 > ");
 			choice = sc.nextLine();
 	
-			 if(choice.equals("0")) {
+			 if(choice.equals("ok")) {
 	                CartManager cm = new CartManager(myCart, storeMap);
 	                if(cm.cartManagerStart()==true) {
 	                    return true;
@@ -84,7 +79,7 @@ public class MenuManager {
 	                    continue;
 	                }
 	         }
-			else if(choice.equals("9")) {
+			else if(choice.equals("exit")) {
 				System.out.println("처음으로 돌아갑니다.");
 				return false;
 			}

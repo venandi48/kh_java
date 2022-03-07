@@ -40,7 +40,6 @@ public class Store {
 			else if (i == 1)
 				closeTime = LocalTime.of(Integer.parseInt(hour_minute[0]), Integer.parseInt(hour_minute[1]));
 		}
-
 	}
 
 	public LocalTime getOpenTime() {

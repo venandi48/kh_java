@@ -30,10 +30,10 @@ import kh.firstmini.vo.Store;
 
 public class CartManager {
 
-	Cart myCart;
-	Scanner sc = new Scanner(System.in);
-	String inputLine = "";
-	Map<String, Store> storeMap; // 프로그램이 관리하는 전체 점포 목록
+	private Cart myCart;
+	private Scanner sc = new Scanner(System.in);
+	private String inputLine = "";
+	private Map<String, Store> storeMap; // 프로그램이 관리하는 전체 점포 목록
 
 	// 생성자
 	public CartManager(Cart c, Map<String, Store> storeMap) {
@@ -75,7 +75,7 @@ public class CartManager {
 
 	// 현재 장바구니 출력
 	public void printCart() {
-		String topStr = "============================== 당신의 장바구니 ==============================\n";
+		String topStr = "\n============================== 당신의 장바구니 ==============================\n";
 		String underStr = "-------------------------------------------------------------------------\n"
 				+ "1. 메뉴제외\t\t2.주문량 수정\t\t3.주문하기\t\t4.뒤로가기\n"
 				+ "=========================================================================\n";
@@ -102,7 +102,7 @@ public class CartManager {
 			}
 			// 총액 출력
 			DecimalFormat df = new DecimalFormat("#,###");
-			System.out.println("합계금액: " + df.format(myCart.getTotalPrice()));
+			System.out.println("합계금액(배달비제외): " + df.format(myCart.getTotalPrice())+"원");
 		}
 		System.out.print(underStr);
 	}
@@ -198,7 +198,7 @@ public class CartManager {
 		if (isCartEmpty() == true)
 			return;
 
-		System.out.println("-----------------------------------");
+		System.out.println("---------------------------------------------");
 		System.out.println("(배달안내) 고객님의 주문이 접수되었습니다.\n");
 
 		SimpleDateFormat sdf = new SimpleDateFormat("M월 d일 a h:mm");
@@ -219,13 +219,13 @@ public class CartManager {
 		int totalRiderTip = 0;
 		for (String s : cartIdSet) {
 			Store store = storeMap.get(s);
-			System.out.printf("   %s %,d원%n", store.getStoreName(), store.getRiderTip());
+			System.out.printf("  %s %,d원%n", store.getStoreName(), store.getRiderTip());
 			totalRiderTip += store.getRiderTip();
 		}
 
 		int lastPrice = myCart.getTotalPrice() + totalRiderTip;
 		System.out.println("- 총 결제금액: " + df.format(lastPrice) + "원");
-		System.out.println("-----------------------------------\n");
+		System.out.println("---------------------------------------------\n");
 
 		// 장바구니 초기화
 		myCart.resetCart();

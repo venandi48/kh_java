@@ -29,7 +29,7 @@ public class ChoiceView {
 
 			// 선택지 출력
 			printView();
-			System.out.print("선택 > ");
+			System.out.print("번호선택 > ");
 			String viewChoice = sc.nextLine();
 
 			switch (viewChoice) {
@@ -104,8 +104,9 @@ public class ChoiceView {
 			int minOrderPrice = value.getMinOrderPrice();
 			String address = value.getAddress();
 			String runTime = value.getRunTime();
-
-			System.out.printf("❤ %s (%s)%n   최소주문 %,d원, 배달팁 %,d원%n", storeName, storeTel, minOrderPrice, riderTip);
+			
+			System.out.printf("❤ [%s] %s점 (%s)%n   최소주문 %,d원, 배달팁 %,d원%n   영업시간 %s%n", storeName, address, storeTel,
+					minOrderPrice, riderTip, runTime);
 
 			System.out.println();
 		}
@@ -142,7 +143,7 @@ public class ChoiceView {
 		if (searchName.equals("exit"))
 			return false;
 
-		System.out.println("-------------------------------------------------------------------------");
+		System.out.println("-------------------------------------------------------------------------\n");
 		boolean isContain = false;
 
 		Set<Map.Entry<String, Store>> entrySet = storeMap.entrySet();
@@ -155,8 +156,12 @@ public class ChoiceView {
 				String storeTel = value.getStoreTel();
 				int riderTip = value.getRiderTip();
 				int minOrderPrice = value.getMinOrderPrice();
+				String address = value.getAddress();
+				String runTime = value.getRunTime();
 
-				System.out.printf("❤ %s (%s)%n   최소주문 %,d원, 배달팁%,d원%n", storeName, storeTel, minOrderPrice, riderTip);
+				System.out.printf("❤ [%s] %s점 (%s)%n   최소주문 %,d원, 배달팁 %,d원%n   영업시간 %s%n", storeName, address, storeTel,
+						minOrderPrice, riderTip, runTime);
+
 				System.out.println();
 			}
 		}
