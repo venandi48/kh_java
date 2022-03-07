@@ -1,5 +1,7 @@
 package kh.firstmini.vo;
 
+import java.time.LocalTime;
+
 public class Store {
 	private String storeID; // 매장고유번호
 	private String storeName; // 매장명
@@ -8,6 +10,8 @@ public class Store {
 	private int minOrderPrice; // 최소주문금액
 	private String address; // 주소
 	private String runTime; // 운영시간
+	private LocalTime openTime; // 개점시간
+	private LocalTime closeTime; // 폐점시간
 
 	public Store() {
 		super();
@@ -25,6 +29,34 @@ public class Store {
 		this.minOrderPrice = minOrderPrice;
 		this.address = address;
 		this.runTime = runTime;
+
+		String[] open_close = runTime.split("~");
+		String[] hour_minute;
+		for (int i = 0; i < open_close.length; i++) {
+			hour_minute = open_close[i].split(":");
+
+			if (i == 0)
+				openTime = LocalTime.of(Integer.parseInt(hour_minute[0]), Integer.parseInt(hour_minute[1]));
+			else if (i == 1)
+				closeTime = LocalTime.of(Integer.parseInt(hour_minute[0]), Integer.parseInt(hour_minute[1]));
+		}
+
+	}
+
+	public LocalTime getOpenTime() {
+		return openTime;
+	}
+
+	public void setOpenTime(LocalTime openTime) {
+		this.openTime = openTime;
+	}
+
+	public LocalTime getCloseTime() {
+		return closeTime;
+	}
+
+	public void setCloseTime(LocalTime closeTime) {
+		this.closeTime = closeTime;
 	}
 
 	public String getStoreID() {

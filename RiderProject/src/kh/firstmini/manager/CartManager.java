@@ -2,7 +2,10 @@ package kh.firstmini.manager;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
@@ -58,6 +61,8 @@ public class CartManager {
 				modifyMenu(); // 주문수량
 				break;
 			case "3":
+				if (minAndTimeCheck() == false)
+					continue;
 				orderCheck(); // 주문확정
 				return true;
 			case "4":
@@ -226,6 +231,64 @@ public class CartManager {
 		myCart.resetCart();
 	}
 
+	// 최소주문금액&시간요건 불충족 시 false 리턴하도록 
+	public boolean minAndTimeCheck() {
+
+		Map<String, Integer> cartStoreMap = new HashMap<>(); // <storeId, 점포별금액합>
+
+		Set<Map.Entry<Menu, Integer>> entrySet = myCart.getMenuCountMap().entrySet();
+		for (Map.Entry<Menu, Integer> entry : entrySet) {
+			String menuStoreId = entry.getKey().getStoreID();
+			int menuPrice = entry.getKey().getPrice();
+			int count = entry.getValue();
+
+			if (cartStoreMap.containsKey(menuStoreId)) {
+				int beforePrice = cartStoreMap.get(menuStoreId);
+				int afterPrice = beforePrice + (menuPrice * count);
+				cartStoreMap.put(menuStoreId, afterPrice);
+			} else {
+				cartStoreMap.put(menuStoreId, menuPrice * count);
+			}
+		}
+
+		// 요건 검사 기준
+		int minOrderPrice = 0;
+		LocalTime openTime = LocalTime.of(0, 0);
+		LocalTime closeTime = LocalTime.of(23, 59);
+
+		Set<Map.Entry<String, Store>> entrySet2 = storeMap.entrySet(); // 점포목록
+		for (Map.Entry<String, Store> entry : entrySet2) {
+			String key = entry.getKey(); // storeID
+			Store value = entry.getValue();
+
+			if (cartStoreMap.containsKey(key)) {
+				// 검사 기준을 해당 점포의 정보로 변경
+				minOrderPrice = value.getMinOrderPrice();
+				openTime = value.getOpenTime();
+				closeTime = value.getCloseTime();
+
+				// 최소주문금액 충족검사
+				int storePrice = cartStoreMap.get(key);
+				if (storePrice < minOrderPrice) {
+					System.out.printf("[%s]의 최소주문 금액은: %,d, 현재 주문금액은: %,d 입니다.%n", value.getStoreName(), minOrderPrice,
+							storePrice);
+					return false;
+				}
+
+				// 영업시간 충족검사
+				LocalTime now = LocalTime.now();
+				// 분단위 차이값
+				long openDiff = Duration.between(openTime, now).getSeconds() / 60;
+				long closeDiff = Duration.between(now, closeTime).getSeconds() / 60;
+				if (openDiff < 0 || closeDiff < 0) {
+					System.out.printf("[%s]의 영업시간이 아닙니다%n", value.getStoreName());
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
 	// 장바구니 비어있으면 출력 & t리턴
 	// 장바구니에 뭔가 있으면 f리턴
 	public boolean isCartEmpty() {
