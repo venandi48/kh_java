@@ -19,6 +19,9 @@ import kh.firstmini.vo.Store;
  * 
  * @author ej_lee
  * 
+ * 기능
+ *  장바구니 출력, 메뉴제외, 주문량 수정, 주문검증 및 주문완료
+ * 
  * 실행방법 
  *  1. 객체 생성
  *  	- 생성자 : CartManager(Cart c, Map<String, Store> storeMap)
@@ -58,7 +61,7 @@ public class CartManager {
 				removeCartMenu(); // 메뉴제외
 				break;
 			case "2":
-				modifyMenu(); // 주문수량
+				modifyMenu(); // 주문수량정정
 				break;
 			case "3":
 				if (minAndTimeCheck() == false)
@@ -133,7 +136,7 @@ public class CartManager {
 
 	// 선택메뉴 삭제 : 삭제 성공하면 t리턴, 아니면 f리턴
 	// - 조건식 searchMenu(String) 으로 바꿔야함
-	private boolean removeMenu(String removeName) {
+	public boolean removeMenu(String removeName) {
 
 		for (Menu m : myCart.getCartList()) {
 			// 제외할 메뉴를 찾으면 카트목록에서 제거 && true리턴
@@ -256,6 +259,7 @@ public class CartManager {
 		LocalTime openTime = LocalTime.of(0, 0);
 		LocalTime closeTime = LocalTime.of(23, 59);
 
+		// 요건 검사
 		Set<Map.Entry<String, Store>> entrySet2 = storeMap.entrySet(); // 점포목록
 		for (Map.Entry<String, Store> entry : entrySet2) {
 			String key = entry.getKey(); // storeID

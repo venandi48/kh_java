@@ -1,5 +1,9 @@
 package kh.firstmini.view;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -18,9 +22,13 @@ public class ChoiceView {
 	public ChoiceView() {
 		super();
 
-		storeMap.put("1234", new Store("1234", "메가커피", "02-1111-3333", 2000, 3000, "삼성2동", "10:00~20:00"));
-		storeMap.put("1200", new Store("1200", "커피빈", "02-1234-56783", 2500, 10000, "역삼2동", "10:00~20:00"));
-		storeMap.put("5678", new Store("5678", "엽기떡볶이", "02-5555-7777", 3000, 14000, "역삼1동", "11:00~21:00"));
+		try (ObjectInputStream ois = new ObjectInputStream(
+				new BufferedInputStream(new FileInputStream("allStore.ser")))) {
+			storeMap = (Map<String, Store>) ois.readObject();
+
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void ChoiceViewMain() {
@@ -104,7 +112,7 @@ public class ChoiceView {
 			int minOrderPrice = value.getMinOrderPrice();
 			String address = value.getAddress();
 			String runTime = value.getRunTime();
-			
+
 			System.out.printf("❤ [%s] %s점 (%s)%n   최소주문 %,d원, 배달팁 %,d원%n   영업시간 %s%n", storeName, address, storeTel,
 					minOrderPrice, riderTip, runTime);
 
@@ -115,8 +123,7 @@ public class ChoiceView {
 	}
 
 	/**
-	 * 사용자로부터 입력받은 뒤, 전체 매장 목록에서 탐색하여 storeID리턴.
-	 * 전체 매장 목록에 입력받은 매장이름이 없을 경우 null 리턴
+	 * 사용자로부터 입력받은 뒤, 전체 매장 목록에서 탐색하여 storeID리턴. 전체 매장 목록에 입력받은 매장이름이 없을 경우 null 리턴
 	 * 사용자가 뒤로가기 선택 시 exit 리턴
 	 */
 	public String chooseStore() {
@@ -175,10 +182,10 @@ public class ChoiceView {
 
 	public void printView() {
 		String topStr = "============================ 🛵 배달의 라이더 🛵 ============================\n\n"
-					  + "\t\t\t    세상은 넓고 맛집은 많다!\n\n"
-					  + "-------------------------------------------------------------------------\n"
-					  + "1. 점포둘러보기\t\t2. 점포검색하기\t\t3. 종료하기\n"
-					  + "=========================================================================";
+				+ "\t\t\t    세상은 넓고 맛집은 많다!\n\n"
+				+ "-------------------------------------------------------------------------\n"
+				+ "1. 점포둘러보기\t\t2. 점포검색하기\t\t3. 종료하기\n"
+				+ "=========================================================================";
 		System.out.println(topStr);
 	}
 

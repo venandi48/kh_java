@@ -1,6 +1,14 @@
 package kh.firstmini.vo;
 
-public class Menu {
+import java.io.Serializable;
+
+public class Menu implements Serializable {
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String storeID;
 	private String menuName;
 	private int price;

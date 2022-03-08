@@ -1,10 +1,13 @@
-	package kh.firstmini.manager;
+package kh.firstmini.manager;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 
 import kh.firstmini.vo.Cart;
 import kh.firstmini.vo.Menu;
@@ -29,12 +32,14 @@ public class MenuManager {
 	}	
 	
 	public void addMenu() {
-		list.add(new Menu("1234", "메가리카노", 3000));
-        list.add(new Menu("1234", "카페라떼", 3500));
-        list.add(new Menu("1234", "딸기라떼", 4000));
-        list.add(new Menu("5678", "엽기떡볶이", 14000));
-        list.add(new Menu("5678", "엽기닭볶음탕", 24000));
-        list.add(new Menu("5678", "주먹김밥", 2000));		
+
+		try (ObjectInputStream ois = new ObjectInputStream(
+				new BufferedInputStream(new FileInputStream("allMenu.ser")))) {
+			list = (List<Menu>) ois.readObject();
+
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	// 매장의 모든 메뉴 출력
@@ -54,6 +59,7 @@ public class MenuManager {
 		for (Menu m : list) {
 			if (m.getStoreID().equals(storeID) && m.getMenuName().equals(name)) {
 				myCart.addCartList(m);
+				System.out.printf("장바구니에 [%s]를 담았습니다.%n", choice);
 				return;
 			}
 		}

@@ -1,8 +1,13 @@
 package kh.firstmini.vo;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
-public class Store {
+public class Store implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2L;
 	private String storeID; // 매장고유번호
 	private String storeName; // 매장명
 	private String storeTel; // 전화번호
