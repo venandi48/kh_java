@@ -5,9 +5,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 import kh.firstmini.vo.Cart;
 import kh.firstmini.vo.Menu;
@@ -20,6 +22,7 @@ public class MenuManager {
 	private Cart myCart;
 	private List<Menu> list = new ArrayList<>();
 	private Map<String, Store> storeMap; // 프로그램이 관리하는 전체 매장
+	private Map<Integer, String> menuNoMap;
 	private String storeID;
 
 	// 생성자
@@ -42,27 +45,41 @@ public class MenuManager {
 		}
 	}
 	
-	// 매장의 모든 메뉴 출력
-	public void allMenuPrint() {
-		int i = 1;
-		for (Menu m : list) {
-			if (storeID.equals(m.getStoreID()))
-				System.out.printf("%d. %s  --------------  %,d원%n", i++, m.getMenuName(),m.getPrice());
-		}
-		i = 1;
-	}
+	// 매장의 모든 메뉴 출력    
+    public void allMenuPrint() {
+        menuNoMap = new HashMap<>();
+        int i = 1;
+        for (Menu m : list) {
+			if (storeID.equals(m.getStoreID())) {
+				menuNoMap.put(i, m.getMenuName());
+				System.out.printf("%d. %s  --------------  %,d원%n", i++, m.getMenuName(), m.getPrice());
+			}
+        }
+        i = 1;
+    }
 
 	// cart의 addCartList로 추가
-	public void addCart(String name) {
+	public void addCart(String userInput) {
+
+		String thisName = "";
+
+		Set<Map.Entry<Integer, String>> entrySet = menuNoMap.entrySet();
+		for (Map.Entry<Integer, String> entry : entrySet) {
+
+			if (entry.getKey() == Integer.parseInt(userInput)) {
+				thisName = entry.getValue();
+			}
+		}
 
 		// 사용자가 입력한 이름이 현재 선택 점포의 메뉴인지 검사
 		for (Menu m : list) {
-			if (m.getStoreID().equals(storeID) && m.getMenuName().equals(name)) {
+			if (m.getStoreID().equals(storeID) && m.getMenuName().equals(thisName)) {
 				myCart.addCartList(m);
-				System.out.printf("장바구니에 [%s]를 담았습니다.%n", choice);
+				System.out.printf("장바구니에 [%s. %s]를 담았습니다.%n", choice, thisName);
 				return;
 			}
 		}
+		
 		System.out.println("선택한 점포의 메뉴가 아닙니다.");
 	}
 
@@ -74,7 +91,7 @@ public class MenuManager {
 			allMenuPrint();
 			System.out.println(str);
 			
-			System.out.print("[뒤로가기 : exit, 주문완료 : ok] 메뉴이름 입력 > ");
+			System.out.print("[뒤로가기 : exit, 주문완료 : ok] 메뉴번호 입력 > ");
 			choice = sc.nextLine();
 	
 			 if(choice.equals("ok")) {
