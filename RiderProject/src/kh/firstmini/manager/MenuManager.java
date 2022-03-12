@@ -71,7 +71,7 @@ public class MenuManager {
 			}
 		}
 
-		// 사용자가 입력한 이름이 현재 선택 점포의 메뉴인지 검사
+		// 사용자가 입력한 번호가 현재 선택 점포의 메뉴인지 검사
 		for (Menu m : list) {
 			if (m.getStoreID().equals(storeID) && m.getMenuName().equals(thisName)) {
 				myCart.addCartList(m);
